@@ -108,3 +108,10 @@ string[::-1] # --> '!nuf si sihT'
 # Trick2: Modifying portions of lists
 numbers = [1,2,3,4,5]
 numbers[1:3] = ['a','b','c'] # --> [1, 'a', 'b', 'c', 4, 5]
+
+# ---------------
+# Swapping Values
+# ---------------
+
+names = ["James", "Michelle"]
+names[0], names[1] = names[1], names[0] # swap values --> ['Michelle', 'James']
