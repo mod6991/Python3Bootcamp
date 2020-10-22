@@ -54,3 +54,57 @@ print(blue)
 print(isinstance(blue, Animal))
 print(isinstance(blue, Cat))
 print(isinstance(blue, Dog))
+
+# ------------
+# Polymorphism
+# ------------
+
+class MyAnimal():
+    def speak(self):
+        raise NotImplementedError("Subclass needs to implement this method")
+
+class MyDog(MyAnimal):
+    def speak(self):
+        return "woof"
+
+class MyCat(MyAnimal):
+    def speak(self):
+        return "meow"
+
+d = MyDog()
+print(d.speak())
+c = MyCat()
+print(c.speak())
+
+# -----------------
+# __magic__ methods
+# -----------------
+from copy import copy
+class Character:
+    def __init__(self, first, last, age):
+        self.first = first
+        self.last = last
+        self.age = age
+
+    def __repr__(self):
+        return f"Character named {self.first} {self.last} aged {self.age}"
+
+    def __len__(self):
+        return self.age
+
+    def __add__(self, other):
+        if not isinstance(other, Character):
+            raise TypeError(f"Can't add {type(self)} and {type(other)}")
+        return Character("newborn", self.last, 0)
+
+    def __mul__(self, other):
+        if not isinstance(other, int):
+            raise TypeError(f"Can't multiply {type(self)} and {type(other)}")
+        return [copy(self) for i in range(other)]
+
+j = Character("Jimi", "Hendrix", 27)
+print(j) # __repr__
+print(len(j)) # __len__
+k = Character("Joe", "Dalton", 46)
+print(j + k) # __add__
+print(j * 3) # __mul__
