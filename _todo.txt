@@ -1,0 +1,3 @@
+# binary files
+https://www.tutorialsteacher.com/python/python-read-write-file#:~:text=The%20open()%20function%20opens,files%20are%20not%20human%20readable.
+
