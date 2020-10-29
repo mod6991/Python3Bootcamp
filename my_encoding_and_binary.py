@@ -40,7 +40,7 @@ my_float = 5.998
 
 binary_int = struct.pack('>i', my_int)
 print(binary_int)
-print([hex(i) for i in binary_int])
+print([f"0x{i:02x}" for i in binary_int])
 binary_float = struct.pack('d', my_float)
 print(binary_float)
-print([hex(i) for i in binary_float])
+print([f"0x{i:02x}" for i in binary_float])
